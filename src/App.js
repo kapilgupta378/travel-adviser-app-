@@ -21,11 +21,13 @@ const App = () => {
   //   const [childClicked, setChildClicked] = useState(null);
   //   const [isLoading, setIsLoading] = useState(false);
 
-  //   useEffect(() => {
-  //     navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
-  //       setCoords({ lat: latitude, lng: longitude });
-  //     });
-  //   }, []);
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude, longitude } }) => {
+        setCoords({ lat: latitude, lng: longitude });
+      }
+    );
+  }, []);
 
   //   useEffect(() => {
   //     const filtered = places.filter((place) => Number(place.rating) > rating);
