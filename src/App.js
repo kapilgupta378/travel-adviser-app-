@@ -3,22 +3,22 @@ import { CssBaseline, Grid } from "@material-ui/core";
 
 import { getPlacesData, getWeatherData } from "./api/travelAdvisorAPI";
 import Header from "./components/Header/Header";
-// import List from './components/List/List';
+import List from "./components/List/List";
 import Map from "./components/Map/Map";
 
 const App = () => {
-  //   const [type, setType] = useState('restaurants');
-  //   const [rating, setRating] = useState('');
+  const [type, setType] = useState("restaurants");
+  const [rating, setRating] = useState("");
 
   const [coords, setCoords] = useState({});
   const [bounds, setBounds] = useState(null);
 
-  //   const [weatherData, setWeatherData] = useState([]);
-  //   const [filteredPlaces, setFilteredPlaces] = useState([]);
-  //   const [places, setPlaces] = useState([]);
+  const [weatherData, setWeatherData] = useState([]);
+  const [filteredPlaces, setFilteredPlaces] = useState([]);
+  const [places, setPlaces] = useState([]);
 
-  // const [autocomplete, setAutocomplete] = useState(null);
-  //   const [childClicked, setChildClicked] = useState(null);
+  const [autocomplete, setAutocomplete] = useState(null);
+  const [childClicked, setChildClicked] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -29,11 +29,11 @@ const App = () => {
     );
   }, []);
 
-  //   useEffect(() => {
-  //     const filtered = places.filter((place) => Number(place.rating) > rating);
+  useEffect(() => {
+    const filtered = places.filter((place) => Number(place.rating) > rating);
 
-  //     setFilteredPlaces(filtered);
-  //   }, [rating]);
+    setFilteredPlaces(filtered);
+  }, [rating]);
 
   useEffect(() => {
     if (bounds) {
@@ -52,14 +52,14 @@ const App = () => {
     }
   }, [bounds, type]);
 
-  // const onLoad = (autoC) => setAutocomplete(autoC);
+  const onLoad = (autoC) => setAutocomplete(autoC);
 
-  // const onPlaceChanged = () => {
-  //   const lat = autocomplete.getPlace().geometry.location.lat();
-  //   const lng = autocomplete.getPlace().geometry.location.lng();
+  const onPlaceChanged = () => {
+    const lat = autocomplete.getPlace().geometry.location.lat();
+    const lng = autocomplete.getPlace().geometry.location.lng();
 
-  //   setCoords({ lat, lng });
-  // };
+    setCoords({ lat, lng });
+  };
 
   return (
     <>
@@ -88,12 +88,12 @@ const App = () => {
           }}
         >
           <Map
-            // setChildClicked={setChildClicked}
-            // setBounds={setBounds}
+            setChildClicked={setChildClicked}
+            setBounds={setBounds}
             setCoords={setCoords}
             coords={coords}
-            // places={filteredPlaces.length ? filteredPlaces : places}
-            // weatherData={weatherData}
+            places={filteredPlaces.length ? filteredPlaces : places}
+            weatherData={weatherData}
           />
         </Grid>
       </Grid>
