@@ -21,6 +21,8 @@ const App = () => {
   const [childClicked, setChildClicked] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  console.log(weatherData)
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
       setCoords({ lat: latitude, lng: longitude });
@@ -39,6 +41,7 @@ const App = () => {
 
       getWeatherData(coords.lat, coords.lng)
         .then((data) => setWeatherData(data));
+        
 
       getPlacesData(type, bounds.sw, bounds.ne)
         .then((data) => {

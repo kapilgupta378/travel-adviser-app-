@@ -54,7 +54,7 @@ const Map = ({ coords, places, setCoords, setBounds, setChildClicked, weatherDat
         ))}
       </GoogleMapReact>
     </div>
-  );
+  ); 
 };
 
 export default Map;
