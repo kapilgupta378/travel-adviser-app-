@@ -84,9 +84,13 @@ const App = () => {
           xs={12}
           md={8}
           style={{
+            marginTop: "38px",
+            padding: "30px",
+            height: "100%",
+            backgound: "white",
+            borderRadius: "35px",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
           }}
         >
           <Map
